@@ -1,7 +1,7 @@
 # Tcp-Server
 If the server receives 1 Return upper case, return lower case if 2, return revise if 3.
 
-# This code will work on python 
+# This code will  only work on python 
 
 from socket import*
 Port=9999
@@ -27,4 +27,22 @@ while 1:
         modtext= 'Error....'
     csocket.send(modtext)
     csocket.close()
-    
+   
+   
+
+#TCP- CLIENT
+
+from socket import*
+port =9999
+clientsocket = socket(AF_INET,SOCK_STREAM)
+clientsocket.connect(('127.0.0.1',port))
+doit = clientsocket.recv(1024)
+print doit
+answer= raw_input("Enter  the sentence: ")
+clientsocket.send(answer)
+modifiedtext = clientsocket.recv(1024)
+text =raw_input(" choice")
+clientsocket.send(text)
+modifiedtext=clientsocket.recv(1024)
+print modifiedtext
+closesocket.close()
