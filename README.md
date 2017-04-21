@@ -46,3 +46,5 @@ clientsocket.send(text)
 modifiedtext=clientsocket.recv(1024)
 print modifiedtext
 closesocket.close()
+
+
